@@ -26,7 +26,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
             {isFinished ? 'Finalizado' : 'Em andamento'}
           </span>
           
-          <span className={`badge text-white ${eventPrice === "" ? "" : "px-2 py-0.5"} text-[12px] rounded-2xl ${eventPrice === 'Grátis' ? 'bg-green-400' : 'bg-yellow-400'}`}>
+          <span className={`badge text-white ${eventPrice === "" ? "" : "px-2 py-0.5"} text-[12px] rounded-2xl ${eventPrice === 'Grátis' ? 'bg-green-400' : 'bg-blue-400'}`}>
             {eventPrice}
           </span>
         
@@ -42,7 +42,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           <div className='flex items-center gap-1'>
             <i className="fa-solid fa-clock text-gray-500"></i>
             <span className="text-gray-600 mt-[2px]">
-              {new Date(event.date_time).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+              {new Date(event.date_time).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}hrs
             </span>
           </div>
         </div>
