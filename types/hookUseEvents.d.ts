@@ -14,4 +14,5 @@ export interface Event {
 export interface UseEventsResponse {
   events: Event[];
   isLoading: boolean;
+  quantity: number;
 }

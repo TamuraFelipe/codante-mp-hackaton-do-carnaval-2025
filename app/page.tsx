@@ -13,7 +13,8 @@ const HomePage = () => {
   const [sort, setSort] = useState<string>('desc');
   const [page, setPage] = useState<number>(1);
 
-  const { events, isLoading } = useEvents(city, date, sort, page);
+  const { events, isLoading, quantity } = useEvents(city, date, sort, page);
+  console.log(events)
 
   // Função para filtrar os eventos de acordo com o texto de pesquisa
   const filteredEvents = events.filter((event) => {
@@ -81,8 +82,9 @@ const HomePage = () => {
 
       <div className="flex justify-center">
         <button
-          className="mx-auto bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-8 rounded mt-4"
+          className={`mx-auto ${events.length >= quantity ? 'bg-gray-500 opacity-80 hidden' : 'bg-purple-500 hover:bg-purple-700'} text-white font-bold py-2 px-8 rounded mt-4`}
           onClick={handlePageChange}
+          disabled={events.length >= quantity}
         >
           Carregar mais
         </button>

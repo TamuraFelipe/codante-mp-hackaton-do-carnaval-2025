@@ -10,6 +10,7 @@ export const useEvents = (
 ): UseEventsResponse => {
   const [events, setEvents] = useState<Event[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [quantity, setQuantity] = useState<number>(0);
 
   // Referência para armazenar o valor anterior de city e date
   const prevCityRef = useRef<string | undefined>(city);
@@ -42,6 +43,7 @@ export const useEvents = (
       const response = await fetch(url);
       const data = await response.json();
       setEvents((prevEvents) => [...prevEvents, ...data.data]);
+      setQuantity(data.meta.total);
     } catch (error) {
       console.error('Erro ao buscar eventos:', error);
     } finally {
@@ -63,5 +65,5 @@ export const useEvents = (
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city, date, page]);
 
-  return { events, isLoading };
+  return { events, isLoading, quantity };
 };
