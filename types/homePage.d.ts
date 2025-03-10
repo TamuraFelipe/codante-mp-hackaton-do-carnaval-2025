@@ -16,7 +16,7 @@ export interface HomePageProps {
     handlePageChange: () => void;
   }
   
-  export interface Event {
+  export interface EventApi {
     id: number;
     title: string;
     description: string;
