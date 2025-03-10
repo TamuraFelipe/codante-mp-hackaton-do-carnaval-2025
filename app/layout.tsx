@@ -36,7 +36,8 @@ const Layout = ({ children }: LayoutProps) => {
                 backgroundImage: 'url(/bg-carnaval.jpeg)',
                 backgroundPosition: 'right',
                 backgroundRepeat: 'repeat-y',
-                backgroundSize: 'cover'
+                backgroundSize: 'cover',
+                backgroundAttachment: 'fixed'
               }
             }
             >{children}</main>
