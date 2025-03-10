@@ -52,16 +52,14 @@ export const useEvents = (
   };
 
   useEffect(() => {
-    // Verifica se houve mudança em city ou date
     if (city !== prevCityRef.current || date !== prevDateRef.current) {
-      setEvents([]); // Limpa os eventos quando city ou date mudarem
+      setEvents([]);
     }
 
-    // Atualiza as referências de city e date
     prevCityRef.current = city;
     prevDateRef.current = date;
 
-    fetchEvents(); // Faz a requisição para buscar os eventos
+    fetchEvents();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city, date, page]);
 

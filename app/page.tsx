@@ -1,4 +1,4 @@
-'use client'; // Marca o arquivo como cliente
+'use client';
 
 import React, { useState } from 'react';
 import { useEvents } from '../Hooks/useEvents';
@@ -16,9 +16,8 @@ const HomePage = () => {
   const { events, isLoading, quantity } = useEvents(city, date, sort, page);
   console.log(events)
 
-  // Função para filtrar os eventos de acordo com o texto de pesquisa
   const filteredEvents = events.filter((event) => {
-    if (!search) return true; // Se não houver pesquisa, mostra todos os eventos
+    if (!search) return true; 
     const lowerCaseSearch = search.toLowerCase();
     return (
       event.title.toLowerCase().includes(lowerCaseSearch) ||
@@ -60,7 +59,6 @@ const HomePage = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredEvents.length > 0 ? (
-            // Ordenando os eventos de acordo com o valor de 'sort' (asc ou desc)
             filteredEvents
               .sort((a, b) => {
                 const dateA = new Date(a.date_time);
